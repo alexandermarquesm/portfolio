@@ -1,0 +1,672 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300&display=swap');
+
+:root {
+    --primary-color: #141821;
+    --secondary-color: #104256;
+    --tertiary-color: #005861;
+    --details-color: #EDB62B;
+    --font-color: #EBEBEB;
+
+    --font-primary: 'Montserrat', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+}
+
+main {
+    height: auto;
+    background: var(--primary-color);
+}
+
+section,
+header {
+    height: 100vh;
+    padding: 0 10%;
+}
+
+.header {
+    position: fixed;
+    z-index: 2;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: var(--primary-color);
+}
+
+.header-list {
+    display: flex;
+}
+
+.logo {
+    font-family: var(--font-primary);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.header-item a {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 50px;
+}
+
+.active {
+    background: var(--secondary-color);
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10%;
+    background: var(--primary-color);
+}
+
+.about-introducao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 0;
+}
+
+.about-introducao::before {
+    content: '';
+    position: absolute;
+    background: var(--secondary-color);
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    left: 200px;
+    top: -30px;
+    z-index: -1;
+    box-shadow: -115px -95px 0 -70px var(--secondary-color),
+        -190px -95px 0 -80px var(--secondary-color);
+}
+
+.about-nome {
+    font-family: 'Montserrat';
+    font-style: bold;
+    font-weight: 600;
+    font-size: 4rem;
+    word-wrap: break-word;
+    color: var(--font-color);
+    width: 60%;
+}
+
+.about-subtitle {
+    font-family: var(--font-primary);
+    color: var(--font-color);
+    font-style: 300;
+    font-size: 1.3rem;
+    letter-spacing: 2.5px;
+}
+
+.about-frase {
+    position: relative;
+    text-align: justify;
+    font-family: var(--font-primary);
+    font-style: italic;
+    color: var(--font-color);
+    background: #1c2434;
+    padding: 10px 15px;
+    border-radius: 20px;
+    line-height: 25px;
+    width: 50%;
+    letter-spacing: 1.6px;
+}
+
+.about-frase::before {
+    content: 'Alexander';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--font-color);
+}
+
+.about-svg {
+    display: flex;
+    justify-content: end;
+}
+
+.about-svg svg {
+    height: 80%;
+    width: 80%;
+}
+
+.line-svg {
+    position: absolute;
+    height: 55%;
+    left: 22%;
+    bottom: 0px;
+    z-index: 1;
+    transform: rotate(350deg);
+}
+
+
+/* ------------------------------ Section Skills ------------------------------*/
+
+
+
+.skills {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--secondary-color);
+}
+
+.skills::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    bottom: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    transform: skewY(-2deg);
+}
+
+.skills::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    transform: skewY(2deg);
+}
+
+.skills-graph {
+    position: relative;
+}
+
+.skill-title {
+    font-size: 3rem;
+    color: var(--font-color);
+    font-family: var(--font-primary);
+    font-style: bold;
+    text-align: center;
+}
+
+.skill-image {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+}
+
+.skill-python {
+    left: 50%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+}
+
+.skill-flask {
+    top: 26%;
+    left: 9%;
+}
+
+.skill-css {
+    right: 25%;
+    top: 14%;
+}
+
+.skill-html {
+    right: 5%;
+    top: 55%;
+}
+
+.skill-javascript {
+    bottom: 8%;
+    right: 30%;
+}
+
+.skill-scrapy {
+    bottom: 20%;
+    left: 12%;
+}
+
+.skills-svg {
+    position: relative;
+    top: -20px;
+    width: 100%;
+    height: 100%;
+}
+
+.skill-box {
+    padding: 20px 40px;
+    background: #141821;
+    width: 550px;
+    height: 350px;
+    border-radius: 15px;
+    box-shadow: 0 0 50px 12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-box svg {
+    height: 100%;
+    width: 100%;
+}
+
+.skill-lista {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 100%;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.skill-item svg {
+    height: 40px;
+    width: auto;
+}
+
+.skill-item a {
+    color: var(--font-color);
+    font-size: 1.9rem;
+}
+
+.detail-skill {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    bottom: 0;
+    left: 40%;
+}
+
+.detail-skillnext {
+    position: absolute;
+    width: 200px;
+    height: 90%;
+    top: 72%;
+    right: 33%;
+    z-index: 2;
+    transform: rotate(5deg);
+}
+
+
+/* ------------------------------ Section Works ------------------------------*/
+
+
+.works {
+    position: relative;
+    margin-top: 370px;
+    background: linear-gradient(180deg, #00727D -3.17%, rgba(0, 114, 125, 0) 96.74%);
+    height: 370vh;
+    padding-top: 50px;
+}
+
+.works-title {
+    font-family: var(--font-primary);
+    font-style: bold;
+    color: var(--font-color);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.works-subtitle {
+    text-align: center;
+    color: var(--font-color);
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 1.3rem;
+    margin-bottom: 180px;
+}
+
+
+/* ---------- CARD PROJECT AGIOTABOT --------- */
+
+
+.project {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 50px;
+}
+
+.project-intro {
+    width: 240px;
+}
+
+.project-title {
+    font-size: 2rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--font-color);
+    margin-bottom: 20px;
+}
+
+.project-resume {
+    font-size: .9rem;
+    font-weight: 500;
+    color: var(--font-color);
+    font-family: var(--font-primary);
+    letter-spacing: 2px;
+}
+
+.format-image {
+    position: relative;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.format-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.project-appconvert {
+    right: 10%;
+}
+
+.project-appconvert .format-image::before {
+    transform: rotate(13deg);
+}
+
+.project-appconvert .form-project {
+    transform: rotate(5deg)
+}
+
+.form-project {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    height: 400px;
+    width: 580px;
+}
+
+
+.project-appconvert .form-project img {
+    position: relative;
+    bottom: 55px;
+    right: 70px;
+    height: 520px;
+}
+
+.work-icon {
+    position: absolute;
+    top: 0;
+    left: 55px;
+    transform: scale(.8);
+}
+
+.first-svg-work {
+    top: 720px;
+    right: 40%;
+    position: absolute;
+    width: 170px;
+    transform: rotate(270deg);
+}
+
+
+.second-svg-work {
+    position: absolute;
+    left: 40%;
+    top: 1320px;
+    width: 170px;
+    transform: rotate(30deg);
+}
+
+
+/* ---------- CARD PROJECT AGIOTABOT --------- */
+
+.project-agiotabot {
+    top: 900px;
+    left: 10%;
+    flex-direction: row-reverse;
+}
+
+.project-agiotabot .format-image::before {
+    transform: rotate(-13deg);
+}
+
+.project-agiotabot .form-project {
+    transform: rotate(-5deg)
+}
+
+.project-agiotabot .form-project img {
+    position: relative;
+    bottom: 0px;
+    right: 20px;
+    height: 400px;
+}
+
+
+/* ---------- CARD PROJECT AGIOTABOT --------- */
+
+
+.project-sendfiles {
+    top: 1520px;
+    right: 10%;
+}
+
+.project-sendfiles .format-image::before {
+    transform: rotate(13deg);
+}
+
+.project-sendfiles .form-project {
+    transform: rotate(5deg)
+}
+
+.project-sendfiles .form-project img {
+    position: relative;
+    bottom: 10px;
+    right: 42px;
+    height: 420px;
+}
+
+.detail-worknext {
+    position: absolute;
+    bottom: -10%;
+    right: 30%;
+    width: 300px;
+}
+
+
+/* ----------------------------- Section Contact-----------------------------*/
+
+
+.contact {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-box {
+    position: relative;
+    top: 80px;
+    display: flex;
+    height: 500px;
+    width: 750px;
+    border-radius: 15px;
+    background: #101010;
+}
+
+.box-image {
+    position: relative;
+    height: 100%;
+    width: 60%;
+    border-radius: 15px 0 0 15px;
+    overflow: hidden;
+    background: var(--details-color);
+}
+
+.box-image img {
+    position: relative;
+    bottom: 50px;
+    right: 70px;
+    height: 115%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.contact-title {
+    font-family: var(--font-primary);
+    color: var(--font-color);
+    text-transform: uppercase;
+    font-style: bold;
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    background: linear-gradient(transparent 95%, var(--details-color) 95%);
+    margin-bottom: 40px;
+}
+
+.contact-form input,
+textarea {
+    box-sizing: border-box;
+    width: 65%;
+    outline: none;
+    font-size: 1.4rem;
+    max-height: 150px;
+    max-width: 65%;
+    background: none;
+    color: var(--font-color);
+    padding-left: 10px;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    border: none;
+    border-radius: 0 15px 15px 0;
+}
+
+.contact-form input:focus,
+textarea:focus {
+    caret-color: transparent;
+    color: white;
+    background: linear-gradient(90deg, var(--details-color) 1%, transparent 1%);
+}
+
+input[name="nome"],
+input[name="email"] {
+    height: 40px;
+}
+
+.btn-enviar {
+    letter-spacing: 0.2em;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--details-color);
+    height: 45px;
+    width: 130px;
+    border: 2px solid var(--details-color);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    display: inline-block;
+    background: transparent;
+    text-transform: uppercase;
+    overflow: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    cursor: pointer;
+}
+
+.btn-enviar:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--details-color), purple);
+    content: '';
+    z-index: -1;
+    -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    will-change: width;
+}
+
+.btn-enviar:hover:after {
+    width: 100%;
+}
+
+.btn-enviar:hover {
+    color: #000;
+}
+
+*:after {
+    outline: none;
+}
+
+.contact-social {
+    position: absolute;
+    background: var(--details-color);
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    height: 300px;
+    width: 60px;
+    border-radius: 50px;
+}
+
+.contact-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 5px 0;
+}
+
+.contact-item a svg {
+    fill: black;
+    width: 44px;
+    transition: .5s;
+}
+
+.contact-item:nth-child(1):hover svg {
+    fill: white;
+}
+
+.contact-item:nth-child(2):hover svg {
+    fill: #1DA1F2;
+}
+
+.contact-item:nth-child(3):hover svg {
+    fill: #E4405F;
+}
+
+.contact-item:nth-child(4):hover svg {
+    fill: #0A66C2;
+}
