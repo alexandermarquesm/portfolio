@@ -19,24 +19,23 @@
     box-sizing: border-box;
 }
 
-body {
-    background: white;
-}
-
 main {
-    height: auto;
     background: var(--primary-color);
+    width: auto;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 section,
 header {
     height: 100vh;
+    width: 100%;
     padding: 0 10%;
 }
 
 .header {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     height: 50px;
     line-height: 50px;
     width: 100%;
@@ -59,9 +58,9 @@ header {
 .header-item a {
     font-family: var(--font-primary);
     font-weight: 400;
-    font-size: 1.1rem;
+    font-size: clamp(0.7rem, 20vw, 1.2rem);
     color: white;
-    padding: 10px 15px;
+    padding: 10px 12px;
     margin: 0 5px;
     border-radius: 50px;
 }
@@ -73,7 +72,7 @@ header {
 .about {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0px 10%;
     background: var(--primary-color);
 }
@@ -104,10 +103,9 @@ header {
     font-family: 'Montserrat';
     font-style: bold;
     font-weight: 600;
-    font-size: 4rem;
+    font-size: clamp(1rem, 20vw, 4rem);
     word-wrap: break-word;
     color: var(--font-color);
-    width: 60%;
 }
 
 .about-subtitle {
@@ -125,11 +123,34 @@ header {
     font-style: italic;
     color: var(--font-color);
     background: #1c2434;
-    padding: 10px 15px;
+    padding: 6px 12px;
     border-radius: 20px;
+    width: 230px;
     line-height: 25px;
-    width: 50%;
     letter-spacing: 1.6px;
+}
+
+.download-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--details-color);
+    border-radius: 5px;
+    color: black;
+    font-family: var(--font-primary);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 180px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.download-cv svg {
+    height: 25px;
+    width: 25px;
 }
 
 .about-frase::before {
@@ -145,20 +166,16 @@ header {
 .about-svg {
     display: flex;
     justify-content: end;
+    width: 450px;
 }
 
-.about-svg svg {
-    height: 80%;
-    width: 80%;
-}
 
 .line-svg {
     position: absolute;
-    height: 55%;
-    left: 22%;
-    bottom: 0px;
-    z-index: 1;
-    transform: rotate(350deg);
+    left: 28%;
+    bottom: -50px;
+    z-index: 2;
+    transform: scale(.9);
 }
 
 
@@ -174,17 +191,6 @@ header {
     background: var(--secondary-color);
 }
 
-.skills::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 80px;
-    bottom: -40px;
-    left: 0;
-    background: var(--secondary-color);
-    transform: skewY(-2deg);
-}
-
 .skills::before {
     content: '';
     position: absolute;
@@ -196,8 +202,32 @@ header {
     transform: skewY(2deg);
 }
 
+.skills::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    bottom: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    transform: skewY(-2deg);
+}
+
+
 .skills-graph {
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-svg {
+    animation: rotate 80s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .skill-title {
@@ -208,31 +238,35 @@ header {
     text-align: center;
 }
 
+.box-skills {
+    position: relative;
+}
+
 .skill-image {
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 16%;
+    height: 16%;
 }
 
 .skill-python {
+    top: 50%;
     left: 50%;
-    top: 51%;
     transform: translate(-50%, -50%);
 }
 
 .skill-flask {
-    top: 26%;
+    top: 20%;
     left: 9%;
 }
 
 .skill-css {
     right: 25%;
-    top: 14%;
+    top: 8%;
 }
 
 .skill-html {
     right: 5%;
-    top: 55%;
+    top: 45%;
 }
 
 .skill-javascript {
@@ -245,34 +279,30 @@ header {
     left: 12%;
 }
 
-.skills-svg {
-    position: relative;
-    top: -20px;
-    width: 100%;
-    height: 100%;
-}
-
 .skill-box {
+    position: relative;
     padding: 20px 40px;
     background: #141821;
     width: 550px;
-    height: 350px;
+    height: 55%;
     border-radius: 15px;
     box-shadow: 0 0 50px 12px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .skill-box svg {
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 400px;
 }
 
 .skill-lista {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
     height: 90%;
     width: 100%;
 }
@@ -288,7 +318,7 @@ header {
     width: auto;
 }
 
-.skill-item a {
+.skill-item p {
     color: var(--font-color);
     font-size: 1.9rem;
 }
@@ -319,8 +349,13 @@ header {
     position: relative;
     margin-top: 370px;
     background: linear-gradient(180deg, #00727D -3.17%, rgba(0, 114, 125, 0) 96.74%);
-    height: 370vh;
+    height: 300vh;
     padding-top: 50px;
+}
+
+.works-introducao {
+    width: 100%;
+    margin-bottom: 10%;
 }
 
 .works-title {
@@ -337,7 +372,6 @@ header {
     font-family: var(--font-primary);
     font-weight: 300;
     font-size: 1.3rem;
-    margin-bottom: 180px;
 }
 
 
@@ -345,15 +379,25 @@ header {
 
 
 .project {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: end;
-    gap: 50px;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.project-division {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .project-intro {
     width: 240px;
+    margin: 50px 50px;
 }
 
 .project-title {
@@ -374,7 +418,6 @@ header {
 
 .format-image {
     position: relative;
-    height: 100%;
     border-radius: 25px;
 }
 
@@ -387,10 +430,6 @@ header {
     width: 100%;
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.3);
-}
-
-.project-appconvert {
-    right: 10%;
 }
 
 .project-appconvert .format-image::before {
@@ -412,8 +451,8 @@ header {
 
 .project-appconvert .form-project img {
     position: relative;
-    bottom: 55px;
-    right: 70px;
+    bottom: 15%;
+    right: 15%;
     height: 520px;
 }
 
@@ -424,20 +463,24 @@ header {
     transform: scale(.8);
 }
 
-.first-svg-work {
-    top: 720px;
-    right: 40%;
+.project svg {
+    bottom: 0;
+}
+
+.project svg {
     position: absolute;
+    bottom: -100px;
     width: 170px;
+}
+
+.first-svg-work {
+    left: 50%;
     transform: rotate(270deg);
 }
 
 
 .second-svg-work {
-    position: absolute;
-    left: 40%;
-    top: 1320px;
-    width: 170px;
+    left: 30%;
     transform: rotate(30deg);
 }
 
@@ -445,9 +488,12 @@ header {
 /* ---------- CARD PROJECT AGIOTABOT --------- */
 
 .project-agiotabot {
-    top: 900px;
-    left: 10%;
+    top: 150px;
     flex-direction: row-reverse;
+}
+
+.project-agiotabot .project-division {
+    justify-content: start;
 }
 
 .project-agiotabot .format-image::before {
@@ -470,8 +516,7 @@ header {
 
 
 .project-sendfiles {
-    top: 1520px;
-    right: 10%;
+    top: 300px;
 }
 
 .project-sendfiles .format-image::before {
@@ -491,7 +536,7 @@ header {
 
 .detail-worknext {
     position: absolute;
-    bottom: -10%;
+    bottom: -105vh;
     right: 30%;
     width: 300px;
 }
@@ -505,6 +550,7 @@ header {
     position: relative;
     display: flex;
     justify-content: center;
+    margin: 60vh 0px 100px 0;
 }
 
 .contact-box {
@@ -547,20 +593,21 @@ header {
     color: var(--font-color);
     text-transform: uppercase;
     font-style: bold;
-    font-size: 2.2rem;
+    font-size: clamp(1rem, 5vw, 2.2rem);
     letter-spacing: 3px;
+    padding: 0px 0px 8px 0px;
     background: linear-gradient(transparent 95%, var(--details-color) 95%);
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .contact-form input,
 textarea {
     box-sizing: border-box;
-    width: 65%;
     outline: none;
     font-size: 1.4rem;
     max-height: 150px;
-    max-width: 65%;
+    width: 65%;
     background: none;
     color: var(--font-color);
     padding-left: 10px;
@@ -625,9 +672,6 @@ input[name="email"] {
     color: #000;
 }
 
-*:after {
-    outline: none;
-}
 
 .contact-social {
     position: absolute;
@@ -636,7 +680,7 @@ input[name="email"] {
     top: 50%;
     transform: translate(50%, -50%);
     height: 300px;
-    width: 60px;
+    width: 55px;
     border-radius: 50px;
 }
 
@@ -669,4 +713,123 @@ input[name="email"] {
 
 .contact-item:nth-child(4):hover svg {
     fill: #0A66C2;
+}
+
+
+/* ------------------------- MEDIA QUERIES ----------------------- */
+
+
+@media screen and (max-width: 430px) {
+    .header {
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .line-svg,
+    .about-svg,
+    .detail-skill,
+    .detail-skillnext,
+    .work-icon,
+    .works svg {
+        display: none;
+    }
+
+    .skills {
+        flex-direction: column;
+    }
+
+    .skill-image {
+        width: 16%;
+        height: 16%;
+    }
+
+    .box-skills {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        width: 100vw;
+        margin: 0 auto;
+    }
+
+    .skill-box {
+        flex-direction: column;
+        width: 95vw;
+        height: 500px;
+        gap: 30px;
+    }
+
+    .form-project {
+        width: 90vw;
+        height: 30vh;
+    }
+
+    .works {
+        height: 260vh;
+    }
+
+    .project {
+        flex-direction: column;
+        border-bottom: 1px solid rgba(223, 223, 223, 0.4);
+    }
+
+    .project-appconvert .form-project img {
+        height: 39vh;
+    }
+
+    .project-agiotabot .form-project img {
+        height: 30vh;
+    }
+
+    .project-sendfiles .form-project img {
+        height: 32vh;
+        right: 5%;
+        bottom: 3%;
+    }
+
+    .project-agiotabot {
+        top: 0;
+    }
+
+    .project-sendfiles {
+        top: 0;
+    }
+
+    .contact {
+        margin: 20vh 0px 100px 0;
+    }
+
+    .contact-box {
+        height: 55%;
+        width: 95vw;
+    }
+
+    .contact-form input,
+    textarea {
+        width: 95%;
+        margin-left: 5px;
+    }
+
+    .contact-social {
+        right: 50%;
+        top: 100%;
+        transform: translate(50%, 20%);
+        height: 55px;
+        width: 300px;
+    }
+
+    .contact-lista {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .contact {
+        margin: 60vh 0px 100px 0;
+    }
 }
